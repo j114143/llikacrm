@@ -42,3 +42,7 @@ class TareasEncargadas(models.Model):
         return self.proyecto.nombre
     class Meta:
         verbose_name_plural = 'Tareas Encargadas'
+# empresas
+# Clientes
+# dominios
+# Hosting
