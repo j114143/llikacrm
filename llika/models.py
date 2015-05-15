@@ -30,7 +30,7 @@ class ControlAsistencia(models.Model):
     hora_llegada = models.TimeField()
     hora_salida = models.TimeField()
     def __unicode__(self):
-        return self.reporte
+        return "Asistencia de "+str(self.trabajador)
     class Meta:
         verbose_name_plural = 'Control Asistencia'
 class TareasEncargadas(models.Model):

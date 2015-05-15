@@ -112,7 +112,7 @@ MEDIA_URL = '/media/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-SSTATIC_ROOT = '/home/usuario/llika/assets/'
+STATIC_ROOT = '/home/usuario/llika/assets/'
 STATIC_URL = '/assets/'
 
 # User
