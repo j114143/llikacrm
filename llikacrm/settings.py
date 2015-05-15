@@ -25,12 +25,13 @@ SECRET_KEY = '7_l@39%g=@&tp@qxb-v7+($))msn$4i37ykej7xp+nknfwmwhv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['llika.crm']
 
 
 # Application definition
 
 INSTALLED_APPS = (
+    'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,6 +80,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    'production': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mydatabase',
+        'USER': 'mydatabaseuser',
+        'PASSWORD': 'mypassword',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
@@ -86,7 +95,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-pe'
 
 TIME_ZONE = 'UTC'
 
@@ -96,8 +105,30 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Media
+MEDIA_ROOT = '/home/usuario/llila/media/'
+MEDIA_URL = '/media/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/static/'
+SSTATIC_ROOT = '/home/usuario/llika/assets/'
+STATIC_URL = '/assets/'
+
+# User
+LOGIN_REDIRECT_URL = "/user/config"
+LOGIN_URL = '/user/login'
+# Session
+SESSION_COOKIE_AGE = 1800
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+# Email
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'juan@llika.net'
+EMAIL_HOST_PASSWORD = 'juaneco2012'
+EMAIL_PORT = 587
+#Admins
+ADMINS = (
+    ('Juan', 'juan@llika.net'),
+    ('Cesar', 'cesar@llika.com')
+)
