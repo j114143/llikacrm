@@ -11,6 +11,17 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
+            name='Cargo',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('nombre', models.CharField(max_length=30)),
+                ('fecha_inicio', models.DateField()),
+            ],
+            options={
+                'verbose_name_plural': 'Cargo de Personal',
+            },
+        ),
+        migrations.CreateModel(
             name='ControlAsistencia',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
@@ -66,11 +77,18 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('nombres', models.CharField(max_length=30)),
                 ('apellidos', models.CharField(max_length=30)),
+                ('DNI', models.CharField(max_length=8)),
+                ('fecha_nacimiento', models.CharField(max_length=30)),
+                ('direccion', models.CharField(max_length=30)),
                 ('telefono', models.CharField(max_length=30, blank=True)),
-                ('correo', models.CharField(max_length=30)),
+                ('celular', models.CharField(max_length=30, blank=True)),
+                ('e_mail_personal', models.CharField(max_length=30, blank=True)),
+                ('e_mail_llika', models.CharField(max_length=30)),
+                ('contacto', models.CharField(max_length=30)),
+                ('contacto_telefono', models.CharField(max_length=30)),
             ],
             options={
-                'verbose_name_plural': 'Trabajadores',
+                'verbose_name_plural': 'Personal de Llika',
             },
         ),
         migrations.AddField(
@@ -92,5 +110,10 @@ class Migration(migrations.Migration):
             model_name='controlasistencia',
             name='trabajador',
             field=models.OneToOneField(to='llika.Trabajador'),
+        ),
+        migrations.AddField(
+            model_name='cargo',
+            name='Trabajador',
+            field=models.ForeignKey(to='llika.Trabajador'),
         ),
     ]

@@ -1,0 +1,13 @@
+<html>
+<head>
+    <title>Tareas</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+
+    {{formulario6.as_table}}
+    <input type="submit" value="Guardar">
+</form>
+</body>
+</html>

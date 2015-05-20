@@ -1,0 +1,13 @@
+<html>
+<head>
+    <title>Informacion Practicas</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+
+    {{formulario4.as_table}}
+    <input type="submit" value="Guardar">
+</form>
+</body>
+</html>
